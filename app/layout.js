@@ -1,7 +1,5 @@
 import '../styles/globals.css'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import Navbar from '@components/Navbar';
 
 export const metadata = {
   title: 'Promptopedia',
@@ -12,7 +10,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <title>promptopedia</title>
-      <body className={inter.className}>{children}</body>
+      <body>
+      <div className='main'>
+          <div className='gradient' />
+        </div>
+        <main className='app'>
+          <Navbar />
+          {children}
+        </main>
+        </body>
     </html>
   )
 }

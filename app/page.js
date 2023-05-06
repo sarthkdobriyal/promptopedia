@@ -2,8 +2,15 @@
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1 className="text-red-500 text-lg"> HEllo WOrld! </h1>
-    </main>
+    <section className="w-full flex-center flex-col">
+       <h1 className='head_text text-center'>
+      Discover & Share
+      <br className='max-md:hidden' />
+      <span className='green_gradient text-center'> AI Prompts</span>
+    </h1>
+    <p className='desc text-center'>
+    Promptopedia , a modern tool that  helps users discover, create, and share creative prompts for generative AI.
+    </p>
+    </section>
   )
 }
