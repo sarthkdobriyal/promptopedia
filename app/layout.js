@@ -7,7 +7,7 @@ export const metadata = {
   description: "Discover and Share all your chatgpt prompts",
 };
 
-export default function RootLayout({ children }) {
+const  RootLayout = ({ children }) =>  {
   return (
     <html lang="en">
       <title>promptopedia</title>
@@ -25,3 +25,5 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+export default  RootLayout;
