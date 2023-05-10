@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import React, { useState } from "react";
+import { signIn, signOut, useSession }  from 'next-auth/react'
 
 const Navbar = () => {
-  const isUser = true;
+  const { data: session } = useSession()
+
 
   const [toggleDropDown, setToggleDropDown] = useState(false);
 
@@ -25,7 +27,7 @@ const Navbar = () => {
 
       {/* desktop */}
 
-      {isUser ? (
+      {session?.user ? (
         <div className=" hidden md:flex gap-4 items-center">
           {/* create post button */}
           <button className="black_btn">Create Prompt</button>
@@ -35,13 +37,13 @@ const Navbar = () => {
         </div>
       ) : (
         <div className=" hidden md:flex items-center">
-          <button className="black_btn">Sign In</button>
+          <button className="black_btn" onClick={() => signIn()}>Sign In</button>
         </div>
       )}
 
       {/* mobile */}
 
-      {isUser ? (
+      {session?.user ? (
         <div className="md:hidden flex relative">
           <div className="border border-red-500 rounded-full w-10 h-10">
             {/* User profile photo */}
@@ -82,7 +84,7 @@ const Navbar = () => {
         </div>
       ) : (
         <div className="md:hidden flex ">
-          <button className="black_btn text-sm">Sign In</button>
+          <button className="black_btn text-sm" onClick={() => signIn()}>Sign In</button>
         </div>
       )}
     </nav>
