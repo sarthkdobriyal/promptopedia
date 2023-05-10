@@ -1,12 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
-import { signIn, signOut, useSession }  from 'next-auth/react'
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
+import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 
 const Navbar = () => {
   const { data: session } = useSession()
 
+  const [providers, setProviders] = useState(null)
+  console.log(providers)
+  console.log(session)
+  useEffect(() => {
+    
+      const getPro = async () => {
+        const res = await getProviders();
+        setProviders(res);
+      }
+
+      getPro();
+  },[])
 
   const [toggleDropDown, setToggleDropDown] = useState(false);
 
@@ -31,13 +44,34 @@ const Navbar = () => {
         <div className=" hidden md:flex gap-4 items-center">
           {/* create post button */}
           <button className="black_btn">Create Prompt</button>
-          <div className="border border-red-500 rounded-full w-5 h-5">
             {/* User profile photo */}
+            <button type='button' onClick={signOut} className='outline_btn'>
+              Sign Out
+            </button>
+
+          <div className="flex gap-4 rounded-full">
+            {/* <Link href='/profile'> */}
+              <Image
+                src={session?.user.image}
+                width={37}
+                height={37}
+                className='rounded-full'
+                alt='profile'
+              />
+            {/* </Link> */}
           </div>
         </div>
       ) : (
         <div className=" hidden md:flex items-center">
-          <button className="black_btn" onClick={() => signIn()}>Sign In</button>
+         {
+          providers && Object.values(providers).map((provider) => (
+            <button type='button'
+            key={provider.name} className="black_btn" onClick={() => signIn(provider.id)}>Sign In</button>
+          ))
+         }
+
+
+         
         </div>
       )}
 
@@ -47,10 +81,20 @@ const Navbar = () => {
         <div className="md:hidden flex relative">
           <div className="border border-red-500 rounded-full w-10 h-10">
             {/* User profile photo */}
+            
             <div
               onClick={() => setToggleDropDown((prev) => !prev)}
               className="h-10 w-10"
-            ></div>
+            >
+              
+              <Image
+              src={session?.user.image}
+              width={37}
+                height={37}
+                className='rounded-full'
+                alt='profile'
+            /> 
+            </div>
 
             {toggleDropDown && (
               <div className="dropdown">
@@ -83,9 +127,14 @@ const Navbar = () => {
           </div>
         </div>
       ) : (
-        <div className="md:hidden flex ">
-          <button className="black_btn text-sm" onClick={() => signIn()}>Sign In</button>
-        </div>
+        <>
+        {
+          providers && Object.values(providers).map((provider) => (
+            <button type='button'
+            key={provider.name} className="black_btn md:hidden " onClick={() => signIn(provider.id)}>Sign In</button>
+          ))
+         }
+        </>
       )}
     </nav>
   );
