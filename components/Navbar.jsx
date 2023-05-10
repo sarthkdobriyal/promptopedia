@@ -5,12 +5,13 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 
+
 const Navbar = () => {
   const { data: session } = useSession()
 
+
+
   const [providers, setProviders] = useState(null)
-  console.log(providers)
-  console.log(session)
   useEffect(() => {
     
       const getPro = async () => {
@@ -43,7 +44,10 @@ const Navbar = () => {
       {session?.user ? (
         <div className=" hidden md:flex gap-4 items-center">
           {/* create post button */}
-          <button className="black_btn">Create Prompt</button>
+          <Link href='/create-prompt' className='black_btn'>
+              Create Post
+            </Link>
+          
             {/* User profile photo */}
             <button type='button' onClick={signOut} className='outline_btn'>
               Sign Out

@@ -13,10 +13,10 @@ const  RootLayout = ({ children }) =>  {
       <title>promptopedia</title>
       <body>
         <Provider>
-          <div className="main">
+          <div className="main bg-slate-200">
             <div className="gradient" />
           </div>
-          <main className="app">
+          <main className="app ">
             <Navbar />
             {children}
           </main>
