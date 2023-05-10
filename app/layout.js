@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import Navbar from '@components/Navbar';
+import Provider from '../components/Provider'
 
 export const metadata = {
   title: 'Promptopedia',
@@ -11,6 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <title>promptopedia</title>
       <body>
+      <Provider>
       <div className='main'>
           <div className='gradient' />
         </div>
@@ -18,6 +20,7 @@ export default function RootLayout({ children }) {
           <Navbar />
           {children}
         </main>
+      </Provider>
         </body>
     </html>
   )
