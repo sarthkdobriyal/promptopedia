@@ -43,7 +43,7 @@ const Form = ({ type, handleSubmit, prompt, setPrompt,submitting }) => {
           className='bg-blue-500 hover:bg-slate-700 text-white px-3 py-2 rounded-lg active:translate-y-2'
           disabled={submitting}
         >
-           {submitting ? `${type}ing...` : type}
+           {submitting ? `Working on it..` : type}
         </button>
       </div>
 

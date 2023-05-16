@@ -1,4 +1,4 @@
-
+import Feed from '@components/Feed'
 
 export default function Home() {
   return (
@@ -11,6 +11,8 @@ export default function Home() {
     <p className='desc text-center'>
     Promptopedia , a modern tool that  helps users discover, create, and share creative prompts for generative AI.
     </p>
+
+    <Feed />
     </section>
   )
 }

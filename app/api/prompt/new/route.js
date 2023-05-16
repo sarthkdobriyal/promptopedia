@@ -1,5 +1,5 @@
-import Prompt from '@models/Prompt'
-import  connectDb      from "@utils/database";
+import Prompt from '@models/prompt'
+import  connectDb  from "@utils/database";
 
 
 export const POST = async (req, res) => {
