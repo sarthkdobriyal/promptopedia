@@ -1,5 +1,5 @@
 //GET
-import Prompt from '@models/Prompt'
+import Prompt from '@models/prompt'
 import connectDb from '@utils/database'
 
 export const GET = async (req, { params} ) => {
