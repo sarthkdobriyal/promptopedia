@@ -27,7 +27,8 @@ const Navbar = () => {
   return (
     <nav className="flex py-4 justify-between px-4 border-b border-emerald-300 border-opacity-50 w-full">
       {/* logo */}
-      <div>
+     
+        <Link href='/'>
         <span className="font-extrabold text-lg md:text-4xl font-satoshi text-slate-500">
           prompto
           <span className="font-3xl text-emerald-700">
@@ -37,7 +38,8 @@ const Navbar = () => {
             </span>{" "}
           </span>
         </span>
-      </div>
+        </Link>
+
 
       {/* desktop */}
 
@@ -53,8 +55,8 @@ const Navbar = () => {
               Sign Out
             </button>
 
-          <div className="flex gap-4 rounded-full">
-            {/* <Link href='/profile'> */}
+       
+          <Link href='/profile' className="flex gap-4 rounded-full">
               <Image
                 src={session?.user.image}
                 width={37}
@@ -62,8 +64,8 @@ const Navbar = () => {
                 className='rounded-full'
                 alt='profile'
               />
-            {/* </Link> */}
-          </div>
+            </Link>
+            
         </div>
       ) : (
         <div className=" hidden md:flex items-center">

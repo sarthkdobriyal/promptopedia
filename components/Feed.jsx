@@ -63,7 +63,7 @@ const Feed = () => {
 
 
 
-    const handleTagClick = () => {
+    const handleTagClick = (tagName) => {
         setSearchText(tagName);
 
         const searchResult = filterPrompts(tagName);
