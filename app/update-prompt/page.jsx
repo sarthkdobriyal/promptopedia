@@ -13,11 +13,12 @@ const UpdatePrompt = () => {
   const [prompt, setPrompt] = useState({ prompt: "", tag: "", });
   const [submitting, setIsSubmitting] = useState(false);
 
+
   useEffect(() => {
     const getPromptDetails = async () => {
       const response = await fetch(`/api/prompt/${promptId}`);
       const data = await response.json();
-
+      console.log(data);
       setPrompt({
         prompt: data.prompt,
         tag: data.tag,

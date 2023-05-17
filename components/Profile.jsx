@@ -8,7 +8,7 @@ const Profile = ({ name, desc, data, handleEdit, handleDelete }) => {
         <span className='green_gradient font-satoshi tracking-wider'>{name} Profile</span>
       </h1>
       <p className='desc text-left'>{desc}</p>
-
+      
       <div className='mt-10 prompt_layout'>
         {data.map((post) => (
           <PromptCard
