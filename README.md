@@ -73,4 +73,4 @@ This project is licensed under the [MIT License](LICENSE).
 - NextAuth - [https://next-auth.js.org](https://next-auth.js.org)
 
 
-Thank you for using PromptHub! We hope you find it useful for your AI prompts.
+Thank you for using Promptopedia! We hope you find it useful for your AI prompts.
